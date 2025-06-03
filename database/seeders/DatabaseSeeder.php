@@ -12,11 +12,30 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Test User1',
+            'telegram_id' => 123456,
+            'subscribed' => TRUE,
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Test User2',
+            'telegram_id' => 223456,
+            'subscribed' => TRUE,
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Test User3',
+            'telegram_id' => 323456,
+            'subscribed' => TRUE,
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Test User4',
+            'telegram_id' => 423456,
+            'subscribed' => FALSE,
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Test User5',
+            'telegram_id' => 523456,
+            'subscribed' => FALSE,
+        ]);
     }
 }

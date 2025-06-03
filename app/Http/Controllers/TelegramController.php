@@ -35,7 +35,7 @@ class TelegramController extends Controller
     private function sendMessage($chatId, $text)
     {
         $token = config('services.telegram.bot_token');
-        $url = "https://api.telegram.org/bot{$token}/sendMessage";
+        $url = "https://api.telegram.org/bot" . $token . "/sendMessage";
 
         $client = new \GuzzleHttp\Client();
         $client->post($url, [

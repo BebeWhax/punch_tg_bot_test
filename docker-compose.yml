@@ -10,13 +10,13 @@ services:
     ports:
       - 8000:8000
     depends_on:
-      - db
+      - mysql
     working_dir: /var/www
     command: php artisan serve --host=0.0.0.0 --port=8000
 
-  db:
+  mysql:
     image: mysql:8.0
-    container_name: db
+    container_name: mysql
     restart: always
     ports:
       - "3306:3306"
