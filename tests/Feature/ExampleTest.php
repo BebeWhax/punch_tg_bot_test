@@ -10,10 +10,16 @@ class ExampleTest extends TestCase
     /**
      * A basic test example.
      */
-    public function test_the_application_returns_a_successful_response(): void
+    public function test_start_command_registers_user()
     {
-        $response = $this->get('/');
+        $response = $this->postJson('/telegram/webhook', [
+            'message' => [
+                'chat' => ['id' => 12345, 'first_name' => 'TestUser'],
+                'text' => '/start'
+            ]
+        ]);
 
-        $response->assertStatus(200);
+        $response->assertNoContent();
+        $this->assertDatabaseHas('users', ['telegram_id' => 12345, 'subscribed' => true]);
     }
 }
