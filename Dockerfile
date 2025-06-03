@@ -21,6 +21,5 @@ RUN mkdir -p storage/framework storage/logs bootstrap/cache && \
 
 # Установка зависимостей
 RUN composer install --no-interaction --no-scripts
-
 EXPOSE 9000
 CMD ["php-fpm"]
